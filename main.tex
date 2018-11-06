@@ -1,0 +1,104 @@
+\providecommand{\pgfsyspdfmark}[3]{}
+\documentclass[a4paper,12pt]{article} 
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{import}
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage[]{algpseudocode}
+%\usepackage{algorithm2e}
+
+%% Номера формул
+\mathtoolsset{showonlyrefs=true} % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+%% Шрифты
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+\usepackage{multirow}
+
+%% Свои команды
+%\DeclareMathOperator{\sgn}{\mathop{sgn}}
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+\usepackage{graphicx}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = blue,
+    filecolor = magenta,      
+    urlcolor = cyan,
+}
+
+
+\begin{document} % конец преамбулы, начало документа
+
+%%% Заголовок
+\begin{titlepage}
+  \begin{center}
+    \large
+    МОСКОВСКИЙ ФИЗИКО-ТЕХНИЧЕСКИЙ ИНСТИТУТ\\ (ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ)\\[60mm]
+   
+    
+ 
+    Кафедра мультимедийных технологий и телекоммуникаций\\[5mm]
+ 
+    \textsc{ЛАБОРАТОРНАЯ РАБОТА \\ по теме  }\\[5mm]
+     
+    {\LARGE OFDM}\\[6mm]
+     \textsc{Методические указания }\\[100mm]
+  \bigskip
+     
+      
+	\begin{center}
+
+ 	 под редакцией (*)
+
+	\end{center}
+    
+\end{center}
+
+\begin{center}
+
+ 27.12.2017
+
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+%%%%   Для вставки своих частей в основной документ необходимо из файла .tex в вашей папке удалить преамбулу (все до фразы \begin{document} включительно, и \end{document} тоже. Надо оставить только голый текст, нумерация параграфов сохранится во всем тексте  
+%%%
+\import{1_theoretical/}{t.tex}
+\newpage
+\import{2_modulator/}{modulator.tex}
+\newpage
+\import{3_channel/}{channel.tex}
+\newpage
+\import{4_demodulator/}{demodulator.tex}
+\newpage
+\import{5_scrambler/}{scr.tex}
+\newpage
+\import{6_practice/}{PartOne.tex}
+\newpage
+\import{6_practice/}{PartTwo.tex}
+\newpage
+\import{6_practice/}{PartThree.tex}
+\newpage
+\import{6_practice/}{PartFour.tex}
+
+
+\end{document}
